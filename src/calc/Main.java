@@ -1,13 +1,9 @@
 package calc;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -16,12 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainWindow.fxml"));
         loader.load();
         Controller controller = loader.getController();
         primaryStage.setTitle("CalculatorFX");
-        Scene scene = new Scene(loader.getRoot(), 400, 450);
+        Scene scene = new Scene(loader.getRoot(), 340, 390);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         scene.setOnKeyPressed((KeyEvent event) -> {

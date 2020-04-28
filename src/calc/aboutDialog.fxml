@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+
+
+<DialogPane contentText="GitHub: /kodpalmowy" headerText="Creator:" stylesheets="@css/stylescss.css"
+            xmlns="http://javafx.com/javafx/11.0.1"/>

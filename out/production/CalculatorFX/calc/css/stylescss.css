@@ -1,0 +1,61 @@
+.button
+{
+-fx-background-radius: 0;
+-fx-background-color : #444444;
+}
+.button:hover
+{
+-fx-background-color : #959596;
+}
+.button:pressed
+{
+-fx-background-color : #DCDCDC;
+}
+
+.buttonOperators
+{
+-fx-background-radius: 0;
+-fx-background-color : #FFFD54;
+}
+.buttonOperators:hover
+{
+-fx-background-color : #FFFDA2;
+}
+.buttonOperators:pressed
+{
+-fx-background-color : #FFFED6;
+}
+
+.buttonChangers
+{
+-fx-background-radius: 0;
+-fx-background-color : #FFFDA2;
+}
+.buttonChangers:hover
+{
+-fx-background-color : #FFFED6;
+}
+.buttonChangers:pressed
+{
+-fx-background-color : #FFFEEA;
+}
+
+.menu-bar {
+    -fx-base: #000000;
+    -fx-background-color : #000000;
+    -fx-selection-color: #000000;
+}
+.menu-bar :focused{
+   -fx-background-color: transparent;
+}
+.menu-item: focused {
+    -fx-background-color: derive(#000000,20%);
+    -fx-border-color : #FFFD54;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.menu-item .label{
+    -fx-text-fill: #FFFDA2;
+}
+.context-menu {
+    -fx-background-color: derive(#000000,20%);
+}
