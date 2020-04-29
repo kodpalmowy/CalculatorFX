@@ -1,3 +1,4 @@
+/* Numeric buttons styles: */
 .button
 {
 -fx-background-radius: 0;
@@ -11,7 +12,7 @@
 {
 -fx-background-color : #DCDCDC;
 }
-
+/* Operator buttons styles: */
 .buttonOperators
 {
 -fx-background-radius: 0;
@@ -25,7 +26,7 @@
 {
 -fx-background-color : #FFFED6;
 }
-
+/* Styles for buttons: AC, +/-, %: */
 .buttonChangers
 {
 -fx-background-radius: 0;
@@ -39,14 +40,15 @@
 {
 -fx-background-color : #FFFEEA;
 }
-
+/* MenuBar styles: */
 .menu-bar {
     -fx-base: #000000;
     -fx-background-color : #000000;
-    -fx-selection-color: #000000;
 }
-.menu-bar :focused{
-   -fx-background-color: transparent;
+.menu:hover, .menu:showing{
+    -fx-background-color: #000000;
+    -fx-border-color : #FFFD54;
+    -fx-border-width: 0px 0px 3px 0px;
 }
 .menu-item: focused {
     -fx-background-color: derive(#000000,20%);
@@ -58,4 +60,25 @@
 }
 .context-menu {
     -fx-background-color: derive(#000000,20%);
+ }
+ /* Dialog styles: */
+.dialog-pane {
+    -fx-background-color: black;
+}
+.dialog-pane .label {
+    -fx-text-fill: #FFFD54;
+}
+.dialog-pane:header .header-panel {
+    -fx-background-color: black;
+}
+.dialog-button{
+    -fx-background-radius: 0;
+    -fx-background-color : #FFFD54;
+    -fx-border-color: #FFFD54;
+}
+.dialog-button:hover{
+    -fx-background-color : #FFFDA2;
+}
+.dialog-button:pressed{
+    -fx-background-color : #FFFED6;
 }

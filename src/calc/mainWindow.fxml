@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<GridPane alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
+<GridPane fx:id="rootGridPane" alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
     <children>
         <Button mnemonicParsing="false" onAction="#handleClear" prefHeight="57.0" prefWidth="85.0" styleClass="buttonChangers" stylesheets="@css/stylescss.css" text="AC" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <font>

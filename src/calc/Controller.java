@@ -8,11 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.EmptyStackException;
 import java.util.Optional;
 import java.util.Stack;
 import java.util.regex.Matcher;
@@ -26,19 +29,24 @@ public class Controller {
     @FXML
     private Label result;
 
+    @FXML
+    private GridPane rootGridPane;
+
     private Stack<BigDecimal> operands = new Stack<>();
     private Stack<String> operators = new Stack<>();
 
+    /** Handles button inputs for numbers **/
     @FXML
     public void handleNumbers(ActionEvent e) {
         String number = ((Button) e.getSource()).getText();
-        if (result.getText().equals("0")) {
+        if (result.getText().equals("0") || result.getText().equals("NaN")) {
             result.setText(number);
         } else {
             result.setText(result.getText() + number);
         }
     }
 
+    /** Handles button inputs for operators **/
     @FXML
     public void handleOperator(ActionEvent e) {
         String operator = ((Button) e.getSource()).getText();
@@ -54,14 +62,15 @@ public class Controller {
                 result.setText("NaN");
             }
         } else {
+            try {
             convertedNumber = BigDecimal.valueOf(Float.parseFloat(result.getText()));
             operands.push(convertedNumber);
-            MathContext mc = new MathContext(12,RoundingMode.HALF_UP);
+            MathContext mc = new MathContext(11,RoundingMode.HALF_UP);
             while (operands.size() > 1) {
                 String currentOperator = operators.pop();
                 switch (currentOperator) {
                     case "+":
-                        operands.push(operands.pop().add(operands.pop(),mc));
+                        operands.push(operands.pop().add(operands.pop(),mc).stripTrailingZeros());
                         break;
                     case "-":
                         BigDecimal v1 = operands.pop();
@@ -82,55 +91,74 @@ public class Controller {
                             }
                         } catch (ArithmeticException arithmetic){
                             System.out.println("Arithmetic exception : " + arithmetic.getMessage());
+                            result.setText("NaN");
                         }
                         break;
                 }
             }
-            result.setText(operands.pop().toPlainString());
+                result.setText(operands.pop().toPlainString());
+            } catch (EmptyStackException stackException){
+                System.out.println("Empty stack exception : " + stackException.getMessage());
+                // result of division by zero
+            } catch (NumberFormatException formatException){
+                System.out.println("Number format exception : " + formatException.getMessage());
+            }
         }
 
     }
 
+    /** Handles cleaning Label with input numbers **/
     @FXML
     public void handleClear() {
         result.setText("0");
     }
 
+    /** Handles changing numbers with +/- **/
     @FXML
     public void handleSwitch() {
-        Pattern pattern = Pattern.compile("-.*");
-        Matcher matcher = pattern.matcher(result.getText());
-        if (!result.getText().isEmpty()) {
-            if (!matcher.matches()) {
-                result.setText("-" + result.getText());
-            } else {
-                result.setText(result.getText().substring(1));
+        if (!result.getText().equals("NaN")) {
+            Pattern pattern = Pattern.compile("-.*");
+            Matcher matcher = pattern.matcher(result.getText());
+            if (!result.getText().isEmpty()) {
+                if (!matcher.matches()) {
+                    result.setText("-" + result.getText());
+                } else {
+                    result.setText(result.getText().substring(1));
+                }
             }
         }
     }
 
+    /** Handles adding comma to number **/
     @FXML
     public void handleComma() {
-        Pattern pattern = Pattern.compile(".*\\..*");
-        Matcher matcher = pattern.matcher(result.getText());
-        if (!matcher.matches()) {
-            result.setText(result.getText() + ".");
+        if (!result.getText().equals("NaN")) {
+            Pattern pattern = Pattern.compile(".*\\..*");
+            Matcher matcher = pattern.matcher(result.getText());
+            if (!matcher.matches()) {
+                result.setText(result.getText() + ".");
+            }
         }
     }
 
+    /** Handles percentage calculation **/
     @FXML
     public void handlePercent() {
         float value = Float.parseFloat(result.getText()) / 100;
         result.setText(String.valueOf(value));
     }
 
+    /** Handles exiting app form menu bar item **/
     @FXML
     public void handleExit(){
         Platform.exit();
     }
 
+    /** Handles showing dialog with info about me **/
     @FXML
     public void showAbout(){
+        BoxBlur blur = new BoxBlur(3,3,3);
+        rootGridPane.setEffect(blur);
         Dialog<ButtonType> aboutDialog = new Dialog<>();
         aboutDialog.setTitle("About");
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -144,6 +172,7 @@ public class Controller {
         }
         aboutDialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
         Optional<ButtonType> result = aboutDialog.showAndWait();
+        rootGridPane.setEffect(null);
     }
 
 }
