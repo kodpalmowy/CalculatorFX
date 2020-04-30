@@ -8,16 +8,27 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
+    Scene sceneStandard, sceneScientific;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("standardWindow.fxml"));
         loader.load();
-        Controller controller = loader.getController();
+        StandardController controller = loader.getController();
         primaryStage.setTitle("CalculatorFX");
-        Scene scene = new Scene(loader.getRoot(), 340, 390);
-        primaryStage.setScene(scene);
+        sceneStandard = new Scene(loader.getRoot(), 340, 390);
+        primaryStage.setScene(sceneStandard);
         primaryStage.setResizable(false);
-        scene.setOnKeyPressed((KeyEvent event) -> {
+        buttonsPressed(controller);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    private void buttonsPressed(StandardController controller){
+        sceneStandard.setOnKeyPressed((KeyEvent event) -> {
             KeyCode keyPressed = event.getCode();
             switch (keyPressed) {
                 case DIGIT0:
@@ -82,10 +93,5 @@ public class Main extends Application {
 
             }
         });
-        primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

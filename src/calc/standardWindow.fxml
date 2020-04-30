@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<GridPane fx:id="rootGridPane" alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
+<GridPane fx:id="rootGridPane" alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.StandardController">
     <children>
         <Button mnemonicParsing="false" onAction="#handleClear" prefHeight="57.0" prefWidth="85.0" styleClass="buttonChangers" stylesheets="@css/stylescss.css" text="AC" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <font>
@@ -110,7 +110,7 @@
                 <Font size="45.0" />
             </font>
         </Label>
-      <MenuBar prefWidth="338.0" stylesheets="@css/stylescss.css" GridPane.columnIndex="2" GridPane.columnSpan="4">
+      <MenuBar fx:id="menuBar" prefWidth="338.0" stylesheets="@css/stylescss.css" GridPane.columnIndex="2" GridPane.columnSpan="4">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -121,7 +121,7 @@
             <items>
               <MenuItem mnemonicParsing="false" text="Standard" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Scientific" />
+                  <MenuItem onAction="#changeToScientific" mnemonicParsing="false" text="Scientific" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

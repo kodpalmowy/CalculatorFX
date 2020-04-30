@@ -1,44 +1,35 @@
 /* Numeric buttons styles: */
-.button
-{
--fx-background-radius: 0;
--fx-background-color : #444444;
+.button{
+    -fx-background-radius: 0;
+    -fx-background-color : #444444;
 }
-.button:hover
-{
--fx-background-color : #959596;
+.button:hover{
+    -fx-background-color : #959596;
 }
-.button:pressed
-{
--fx-background-color : #DCDCDC;
+.button:pressed{
+    -fx-background-color : #DCDCDC;
 }
 /* Operator buttons styles: */
-.buttonOperators
-{
--fx-background-radius: 0;
--fx-background-color : #FFFD54;
+.buttonOperators{
+    -fx-background-radius: 0;
+    -fx-background-color : #FFFD54;
 }
-.buttonOperators:hover
-{
--fx-background-color : #FFFDA2;
+.buttonOperators:hover{
+    -fx-background-color : #FFFDA2;
 }
-.buttonOperators:pressed
-{
--fx-background-color : #FFFED6;
+.buttonOperators:pressed{
+    -fx-background-color : #FFFED6;
 }
 /* Styles for buttons: AC, +/-, %: */
-.buttonChangers
-{
--fx-background-radius: 0;
--fx-background-color : #FFFDA2;
+.buttonChangers{
+    -fx-background-radius: 0;
+    -fx-background-color : #FFFDA2;
 }
-.buttonChangers:hover
-{
--fx-background-color : #FFFED6;
+.buttonChangers:hover{
+    -fx-background-color : #FFFED6;
 }
-.buttonChangers:pressed
-{
--fx-background-color : #FFFEEA;
+.buttonChangers:pressed{
+    -fx-background-color : #FFFEEA;
 }
 /* MenuBar styles: */
 .menu-bar {
@@ -61,24 +52,21 @@
 .context-menu {
     -fx-background-color: derive(#000000,20%);
  }
- /* Dialog styles: */
-.dialog-pane {
-    -fx-background-color: black;
+ /* Dialog style: */
+GridPane {
+    -fx-background-color: #000000;
 }
-.dialog-pane .label {
-    -fx-text-fill: #FFFD54;
+.dialog .button-bar{
+  -fx-background-color:black;
 }
-.dialog-pane:header .header-panel {
-    -fx-background-color: black;
-}
-.dialog-button{
+.dialog .button{
     -fx-background-radius: 0;
     -fx-background-color : #FFFD54;
     -fx-border-color: #FFFD54;
 }
-.dialog-button:hover{
+.dialog .button:hover{
     -fx-background-color : #FFFDA2;
 }
-.dialog-button:pressed{
+.dialog .button:pressed{
     -fx-background-color : #FFFED6;
 }
