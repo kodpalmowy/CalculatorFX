@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<GridPane fx:id="rootGridPane" alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="rootGridPane" alignment="BASELINE_LEFT" hgap="1.0" prefHeight="394.0" prefWidth="619.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.ScientificController">
     <children>
         <Button mnemonicParsing="false" onAction="#handleClear" prefHeight="57.0" prefWidth="85.0" styleClass="buttonChangers" stylesheets="@css/stylescss.css" text="AC" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <font>
@@ -91,9 +99,9 @@
             <font>
                 <Font size="30.0" />
             </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
+            <GridPane.margin>
+                <Insets />
+            </GridPane.margin>
         </Button>
         <Button fx:id="btnComma" mnemonicParsing="false" onAction="#handleComma" prefHeight="57.0" prefWidth="85.0" stylesheets="@css/stylescss.css" text="," textFill="#fbff8a" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
             <font>
@@ -105,35 +113,131 @@
                 <Font size="30.0" />
             </font>
         </Button>
-        <Label fx:id="result" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="0.0" prefWidth="330.0" text="0" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1">
+        <Label fx:id="result" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="56.0" prefWidth="611.0" text="0" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
             <font>
                 <Font size="45.0" />
             </font>
         </Label>
-      <MenuBar prefWidth="338.0" stylesheets="@css/stylescss.css" GridPane.columnIndex="2" GridPane.columnSpan="4">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Exit" onAction="#handleExit" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="View">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Standard" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Scientific" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" onAction="#showAbout"/>
-            </items>
-          </Menu>
-        </menus>
-         <styleClass>
-            <String fx:value="menu-item" />
-            <String fx:value="label" />
-         </styleClass>
-      </MenuBar>
+        <MenuBar fx:id="menuBar" prefWidth="338.0" stylesheets="@css/stylescss.css" GridPane.columnIndex="2" GridPane.columnSpan="4">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#changeToStandard" text="Standard" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="scientific" mnemonicParsing="false" text="Scientific" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+            <styleClass>
+                <String fx:value="menu-item" />
+                <String fx:value="label" />
+            </styleClass>
+        </MenuBar>
+      <Button mnemonicParsing="false" onAction="#handleSin" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="sin" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="3">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleCos" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="cos" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="3">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleTan" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="tan" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="3">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleOneDivX" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="1/x" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="7">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleSqrt" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="√x" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="4">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleRoot3" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="3√x" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="4">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="y√x" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="4">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handlePow2" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="x^2" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="5">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handlePow3" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="x^3" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="5">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="x^y" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="5">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleExpPow" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="e^x" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="7">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handlePi" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="π" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="6">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleExp" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="e" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="7">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleLogN" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="ln" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="6">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#handleLog10" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="log10" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="6">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
     </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+      <ColumnConstraints maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+      <ColumnConstraints maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
