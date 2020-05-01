@@ -1,5 +1,6 @@
 package calc;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +17,6 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.EmptyStackException;
-import java.util.Optional;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,13 +32,15 @@ public class StandardController {
     public MenuBar menuBar;
 
     @FXML
-    private Label result;
+    public Label result;
 
     @FXML
     private GridPane rootGridPane;
 
-    private Stack<BigDecimal> operands = new Stack<>();
-    private Stack<String> operators = new Stack<>();
+    public Stack<BigDecimal> operands = new Stack<>();
+    public Stack<String> operators = new Stack<>();
+    public MathContext mc = new MathContext(11, RoundingMode.HALF_UP);
+    public MathContext mcScientific = new MathContext(17, RoundingMode.HALF_UP);
 
     /**
      * Handles button inputs for numbers
@@ -74,7 +76,6 @@ public class StandardController {
             try {
                 convertedNumber = BigDecimal.valueOf(Float.parseFloat(result.getText()));
                 operands.push(convertedNumber);
-                MathContext mc = new MathContext(11, RoundingMode.HALF_UP);
                 while (operands.size() > 1) {
                     String currentOperator = operators.pop();
                     switch (currentOperator) {
@@ -102,6 +103,16 @@ public class StandardController {
                                 System.out.println("Arithmetic exception : " + arithmetic.getMessage());
                                 result.setText("NaN");
                             }
+                            break;
+                        case "y√x":
+                            v1 = operands.pop();
+                            v2 = operands.pop();
+                            operands.push(BigDecimalMath.root(v2, v1, mcScientific).stripTrailingZeros());
+                            break;
+                        case "x^y":
+                            v1 = operands.pop();
+                            v2 = operands.pop();
+                            operands.push(BigDecimalMath.pow(v2, v1, mcScientific).stripTrailingZeros());
                             break;
                     }
                 }
@@ -180,19 +191,22 @@ public class StandardController {
     public void showAbout() {
         BoxBlur blur = new BoxBlur(3, 3, 3);
         rootGridPane.setEffect(blur);
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("About");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setGraphic(null);
+        alert.setHeaderText(null);
+        alert.setTitle("About");
+        Hyperlink github = new Hyperlink();
+        github.setText("https://www.github.com/kodpalmowy");
+        github.setAccessibleText("kodpalmowy");
+
+        alert.setContentText("Creator:\nGitHub: " + github.getAccessibleText());
+        DialogPane aboutDialog = alert.getDialogPane();
+        aboutDialog.getStylesheets().add(
+                getClass().getResource("/calc/css/stylescss.css").toExternalForm());
+        aboutDialog.getStyleClass().add("dialog-pane");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("aboutDialog.fxml"));
-        try {
-            dialog.getDialogPane().setContent(fxmlLoader.load());
-        } catch (IOException ioe){
-            System.out.println("Couldn't load dialog : " + ioe.getMessage());
-            return;
-        }
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
-        Optional<ButtonType> result = dialog.showAndWait();
-
+        alert.showAndWait();
         rootGridPane.setEffect(null);
     }
 

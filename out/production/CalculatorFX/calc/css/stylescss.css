@@ -52,21 +52,24 @@
 .context-menu {
     -fx-background-color: derive(#000000,20%);
  }
- /* Dialog style: */
-GridPane {
-    -fx-background-color: #000000;
+ /* Dialog styles: */
+ .dialog-pane{
+    -fx-background-color: black;
+ }
+ .dialog-pane .label{
+     -fx-text-fill: #FFFD54;
+  }
+.dialog-pane .button-bar{
+    -fx-background-color:black;
 }
-.dialog .button-bar{
-  -fx-background-color:black;
-}
-.dialog .button{
+.dialog-pane .button{
     -fx-background-radius: 0;
     -fx-background-color : #FFFD54;
     -fx-border-color: #FFFD54;
 }
-.dialog .button:hover{
+.dialog-pane .button:hover{
     -fx-background-color : #FFFDA2;
 }
-.dialog .button:pressed{
+.dialog-pane .button:pressed{
     -fx-background-color : #FFFED6;
 }
