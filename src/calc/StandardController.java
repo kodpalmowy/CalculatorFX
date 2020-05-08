@@ -47,11 +47,11 @@ public class StandardController {
      **/
     @FXML
     public void handleNumbers(ActionEvent e) {
-        String number = ((Button) e.getSource()).getText();
+        Button number = (Button) e.getSource();
         if (result.getText().equals("0") || result.getText().equals("NaN")) {
-            result.setText(number);
+            result.setText(number.getAccessibleText());
         } else {
-            result.setText(result.getText() + number);
+            result.setText(result.getText() + number.getAccessibleText());
         }
     }
 
@@ -60,14 +60,15 @@ public class StandardController {
      **/
     @FXML
     public void handleOperator(ActionEvent e) {
-        String operator = ((Button) e.getSource()).getText();
+        Button operator = (Button) e.getSource();
+        System.out.println(operator.getAccessibleText());
         BigDecimal convertedNumber;
-        if (!operator.equals("=")) {
+        if (operator != btnEquals) {
             try {
                 convertedNumber = BigDecimal.valueOf(Float.parseFloat(result.getText()));
                 result.setText("");
                 operands.push(convertedNumber);
-                operators.push(operator);
+                operators.push(operator.getAccessibleText());
             } catch (NumberFormatException numberFormatExc) {
                 System.out.println("Number format exception : " + numberFormatExc.getMessage());
                 result.setText("NaN");

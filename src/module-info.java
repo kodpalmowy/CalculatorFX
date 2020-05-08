@@ -3,4 +3,5 @@ module CalculatorFX {
     requires javafx.controls;
     requires javafx.fxml;
     requires ch.obermuhlner.math.big;
+    requires javafx.graphics;
 }

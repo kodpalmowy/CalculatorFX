@@ -26,5 +26,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="big-math-2.3.0" level="project" />
+    <orderEntry type="library" name="JavaFX-14" level="application" />
   </component>
 </module>

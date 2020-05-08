@@ -179,7 +179,7 @@ public class ScientificController extends StandardController {
      **/
     @FXML
     public void handlePi() {
-        result.setText(BigDecimalMath.pi(mc2).toPlainString());
+        result.setText(BigDecimalMath.pi(mc2).stripTrailingZeros().toPlainString());
     }
     /**
      * This method handles printing value of exponent
@@ -187,7 +187,7 @@ public class ScientificController extends StandardController {
      **/
     @FXML
     public void handleExp() {
-        result.setText(BigDecimalMath.e(mc2).toPlainString());
+        result.setText(BigDecimalMath.e(mc2).stripTrailingZeros().toPlainString());
     }
     /**
      * This method handles calculating natural logarithm
