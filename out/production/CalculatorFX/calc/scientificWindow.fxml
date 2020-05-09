@@ -157,7 +157,7 @@
             <Font size="23.0" />
          </font>
           <graphic>
-              <ImageView accessibleText="1/x" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                       <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/1divx.png" />
                   </image>
@@ -169,7 +169,7 @@
             <Font size="23.0" />
          </font>
          <graphic>
-            <ImageView accessibleText="√x" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/sqrtX.png" />
                </image>
@@ -181,7 +181,7 @@
             <Font size="23.0" />
          </font>
          <graphic>
-            <ImageView accessibleText="3√x" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/rootx3.png" />
                </image>
@@ -193,7 +193,7 @@
             <Font size="23.0" />
          </font>
          <graphic>
-            <ImageView accessibleText="y√x" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/rootxy.png" />
                </image>
@@ -229,7 +229,7 @@
             <Font size="23.0" />
          </font>
           <graphic>
-              <ImageView accessibleText="x^y" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                       <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/powy.png" />
                   </image>

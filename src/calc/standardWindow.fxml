@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.String?>
-<GridPane fx:id="rootGridPane" alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.StandardController">
+
+<GridPane fx:id="rootGridPane" alignment="CENTER" hgap="1.0" prefHeight="390.0" prefWidth="340.0" style="-fx-background-color: #000000;" vgap="2.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.StandardController">
     <children>
         <Button mnemonicParsing="false" onAction="#handleClear" prefHeight="57.0" prefWidth="85.0" styleClass="buttonChangers" stylesheets="@css/stylescss.css" text="AC" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <font>
@@ -22,7 +23,7 @@
                 <Font size="30.0" />
             </font>
         </Button>
-        <Button fx:id="btnDivision" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="/" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+        <Button fx:id="btnDivision" accessibleText="/" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="/" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <font>
                 <Font size="30.0" />
             </font>
@@ -42,7 +43,7 @@
                 <Font size="30.0" />
             </font>
         </Button>
-        <Button fx:id="btnMulti" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="*" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+        <Button fx:id="btnMulti" accessibleText="*" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="*" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
             <font>
                 <Font size="30.0" />
             </font>
@@ -62,7 +63,7 @@
                 <Font size="30.0" />
             </font>
         </Button>
-        <Button fx:id="btnSubtract" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="-" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+        <Button fx:id="btnSubtract" accessibleText="-" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="-" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
             <font>
                 <Font size="30.0" />
             </font>
@@ -82,7 +83,7 @@
                 <Font size="30.0" />
             </font>
         </Button>
-        <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="+" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+        <Button fx:id="btnAdd" accessibleText="+" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="+" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
             <font>
                 <Font size="30.0" />
             </font>
@@ -100,7 +101,7 @@
                 <Font size="30.0" />
             </font>
         </Button>
-        <Button fx:id="btnEquals" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="=" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+        <Button fx:id="btnEquals" accessibleText="=" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="85.0" styleClass="buttonOperators" stylesheets="@css/stylescss.css" text="=" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
             <font>
                 <Font size="30.0" />
             </font>
@@ -114,19 +115,19 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Exit" onAction="#handleExit" />
+              <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="View">
             <items>
               <MenuItem mnemonicParsing="false" text="Standard" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem onAction="#changeToScientific" mnemonicParsing="false" text="Scientific" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToScientific" text="Scientific" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" onAction="#showAbout"/>
+              <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About" />
             </items>
           </Menu>
         </menus>
@@ -136,4 +137,22 @@
          </styleClass>
       </MenuBar>
     </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

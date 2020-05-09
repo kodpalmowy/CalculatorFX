@@ -49,9 +49,9 @@ public class StandardController {
     public void handleNumbers(ActionEvent e) {
         Button number = (Button) e.getSource();
         if (result.getText().equals("0") || result.getText().equals("NaN")) {
-            result.setText(number.getAccessibleText());
+            result.setText(number.getText());
         } else {
-            result.setText(result.getText() + number.getAccessibleText());
+            result.setText(result.getText() + number.getText());
         }
     }
 
@@ -61,9 +61,8 @@ public class StandardController {
     @FXML
     public void handleOperator(ActionEvent e) {
         Button operator = (Button) e.getSource();
-        System.out.println(operator.getAccessibleText());
         BigDecimal convertedNumber;
-        if (operator != btnEquals) {
+        if (operator.equals(btnEquals)) {
             try {
                 convertedNumber = BigDecimal.valueOf(Float.parseFloat(result.getText()));
                 result.setText("");

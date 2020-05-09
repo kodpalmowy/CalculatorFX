@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.ScientificController">
+   <children>
+      <fx:include source="standardWindow.fxml" />
+      <GridPane fx:id="rootGridPane" alignment="BOTTOM_LEFT" prefHeight="294.0" prefWidth="270.0" style="-fx-background-color: #000000;">
+          <children>
+            <Button accessibleText="sin" mnemonicParsing="false" onAction="#handleSin" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="sin" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="1.0" right="1.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="cos" mnemonicParsing="false" onAction="#handleCos" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="cos" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="1.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="tan" mnemonicParsing="false" onAction="#handleTan" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="tan" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="3">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button accessibleText="1/x" mnemonicParsing="false" onAction="#handleOneDivX" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/1divx.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+               <GridPane.margin>
+                  <Insets left="1.0" right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="√x" mnemonicParsing="false" onAction="#handleSqrt" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="4">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/sqrtX.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets left="1.0" right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="3√x" mnemonicParsing="false" onAction="#handleRoot3" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="4">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/rootx3.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="y√x" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="4">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/rootxy.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="x^2" mnemonicParsing="false" onAction="#handlePow2" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/pow2.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+               <GridPane.margin>
+                  <Insets left="1.0" right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="x^3" mnemonicParsing="false" onAction="#handlePow3" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/pow3.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+               <GridPane.margin>
+                  <Insets right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="x^y" mnemonicParsing="false" onAction="#handleOperator" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/powy.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+               <GridPane.margin>
+                  <Insets top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="e^x" mnemonicParsing="false" onAction="#handleExpPow" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="file:/Users/radek/IdeaProjects/CalculatorFX/src/calc/icons/epowx.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+               <GridPane.margin>
+                  <Insets top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="√x" mnemonicParsing="false" onAction="#handlePi" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="π" textFill="#fbff8a" GridPane.columnIndex="6" GridPane.rowIndex="6">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="1.0" right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="e" mnemonicParsing="false" onAction="#handleExp" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="e" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="ln" mnemonicParsing="false" onAction="#handleLogN" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="ln" textFill="#fbff8a" GridPane.columnIndex="7" GridPane.rowIndex="6">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="1.0" top="2.0" />
+               </GridPane.margin>
+            </Button>
+            <Button accessibleText="log10" mnemonicParsing="false" onAction="#handleLog10" prefHeight="57.0" prefWidth="90.0" stylesheets="@css/stylescss.css" text="log10" textFill="#fbff8a" GridPane.columnIndex="8" GridPane.rowIndex="6">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="2.0" />
+               </GridPane.margin>
+            </Button>
+          </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+            <ColumnConstraints maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</HBox>
